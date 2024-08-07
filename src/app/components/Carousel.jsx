@@ -22,12 +22,16 @@ export function CarouselCustomNavigation({ blognews }) {
         >
             {blognews.map((newsItem, index) => (
                 <Link key={index} href={`/readNews/${newsItem.id}`}>
-                    <img
-                        src={"http://localhost:1337" + newsItem.attributes.thumbnail.data[0].attributes.url}
-                        alt={`image ${index + 1}`}
-
-                        className="h-[26rem] w-full object-cover"
-                    />
+                    <div className="relative">
+                        <img
+                            src={"http://localhost:1337" + newsItem.attributes.thumbnail.data[0].attributes.url}
+                            alt={`image ${index + 1}`}
+                            className="h-[26rem] w-full object-cover"
+                        />
+                        <div className="absolute bottom-4 left-4 bg-black bg-opacity-50 text-white p-2 rounded">
+                            <p className="text-4xl">{newsItem.attributes.title}</p>
+                        </div>
+                    </div>
                 </Link>
 
             ))}

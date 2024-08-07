@@ -49,7 +49,7 @@ const News = () => {
     <div className='bg-gray-300'>
       <Heading text={"ข่าวสาร"} />
       <div className='p-5'>
-        <h4>ข่าวสารและกิจกรรมทั้งหมด</h4>
+        <h4 className='text-3xl'>ข่าวสารและกิจกรรมทั้งหมด</h4>
         <div ref={containerRef} className='pt-5 px-8 grid justify-center grid-cols-3 gap-8'>
           {currentBlogs.map((blog, index) => (
             <CardNews key={index} blog={blog} />

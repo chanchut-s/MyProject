@@ -32,7 +32,7 @@ export default async function Home() {
     <div className=' bg-gray-300'>
       <CarouselCustomNavigation blognews={haedBlogs} />
       <div>
-        <h4 className='pt-4 pl-4'>ข่าวสาร</h4>
+        <h4 className='pt-4 pl-4 text-3xl'>ข่าวสาร</h4>
       </div>
       <div className='pt-4 pb-10 mx-8 grid justfy-center grid-cols-3 gap-8' >
         {sortedData.slice(0, 3).map((blog, index) => (

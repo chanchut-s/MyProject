@@ -17,14 +17,13 @@ async function page({ params }) {
   return (
     <div className='bg-gray-300'>
       <Heading text={blog.attributes.title} />
-      <h1>{blog.attributes.title}</h1>
-      <div className='flex justify-center'>
+      <div className='flex justify-center pt-10'>
         <img
           src={"http://localhost:1337" + blog.attributes.thumbnail.data?.[0].attributes.url}
-          className='h-[40rem]'
+          className='h-[30rem]'
         />
       </div>
-      <p>{blog.attributes.detail}</p>
+      <p className='p-10 indent-8'>{blog.attributes.detail}</p>
 
     </div>
   )
