@@ -5,8 +5,8 @@ import Heading from '../components/Heading';
 
 const fetchBlogs = async () => {
   try {
-    const response = await axios.get('http://localhost:1337/api/blog-personnels?populate=Image');
-    return response.data.data;
+    const response = await axios.get('http://localhost:1337/api/personnel?populate=blog_personnels.blogEducation&populate=blog_personnels.Image');
+    return response.data.data.attributes.blog_personnels.data;
   } catch (error) {
     console.log("error", error);
     return [];
