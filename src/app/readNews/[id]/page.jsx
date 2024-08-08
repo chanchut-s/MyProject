@@ -25,7 +25,7 @@ async function page({ params }) {
           className='h-[30rem]'
         />
       </div>
-      <p className='p-10 indent-8'>{blog.attributes.detail}</p>
+      <p className='p-10 indent-8'>{blog.attributes.content}</p>
     </div>
   )
 }
