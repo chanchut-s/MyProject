@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import Heading from '@/app/components/Heading';
+import CardNews from '@/app/components/CardNews';
 
 const fetchBlog = async (id) => {
   try {
@@ -14,6 +15,7 @@ const fetchBlog = async (id) => {
 
 async function page({ params }) {
   const blog = await fetchBlog(params.id);
+
   return (
     <div className='bg-gray-300'>
       <Heading text={blog.attributes.title} />
@@ -24,7 +26,6 @@ async function page({ params }) {
         />
       </div>
       <p className='p-10 indent-8'>{blog.attributes.detail}</p>
-
     </div>
   )
 }

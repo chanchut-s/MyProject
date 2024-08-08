@@ -37,8 +37,8 @@ function CardNews({ blog }) {
           <Typography variant="h4" color="blue-gray">
             {blog.attributes.title}
           </Typography>
-          <Typography variant="lead" color="gray" className="mt-3 font-normal h-[6rem] line-clamp-3">
-            {blog.attributes.detail}
+          <Typography variant="lead" color="gray" className="mt-3 font-normal h-[6rem] line-clamp-3 indent-4">
+            {blog.attributes.content}
           </Typography>
         </CardBody>
         <CardFooter className="flex items-center justify-between">

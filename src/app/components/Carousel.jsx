@@ -6,7 +6,7 @@ import Link from "next/link";
 export function CarouselCustomNavigation({ blognews }) {
     return (
         <Carousel
-            className=" "
+            className=""
             navigation={({ setActiveIndex, activeIndex, length }) => (
                 <div className="absolute bottom-4 left-2/4 z-50 flex -translate-x-2/4 gap-2">
                     {new Array(length).fill("").map((_, i) => (
@@ -21,19 +21,19 @@ export function CarouselCustomNavigation({ blognews }) {
             )}
         >
             {blognews.map((newsItem, index) => (
-                <Link key={index} href={`/readNews/${newsItem.id}`}>
-                    <div className="relative">
-                        <img
-                            src={"http://localhost:1337" + newsItem.attributes.thumbnail.data[0].attributes.url}
-                            alt={`image ${index + 1}`}
-                            className="h-[26rem] w-full object-cover"
-                        />
-                        <div className="absolute bottom-4 left-4 bg-black bg-opacity-50 text-white p-2 rounded">
-                            <p className="text-4xl">{newsItem.attributes.title}</p>
+                <div key={index} className="relative">
+                    <img
+                        src={"http://localhost:1337" + newsItem.attributes.thumbnail.data[0].attributes.url}
+                        alt={`image ${index + 1}`}
+                        className="h-[26rem] w-full object-cover"
+                    />
+                    <Link href={`/readNews/${newsItem.id}`}>
+                        <div className="absolute inset-0 bg-black bg-opacity-50 mt-[16rem]">
+                            <p className="text-4xl text-white p-4">{newsItem.attributes.title}</p>
+                            <p className="text-xl text-white px-8 line-clamp-2 indent-8">{newsItem.attributes.content}</p>
                         </div>
-                    </div>
-                </Link>
-
+                    </Link>
+                </div>
             ))}
 
         </Carousel>
