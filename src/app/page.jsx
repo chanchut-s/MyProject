@@ -1,7 +1,9 @@
+
 import React from 'react'
 import CardNews from './components/CardNews';
 import axios from 'axios'
 import { CarouselCustomNavigation } from './components/Carousel';
+import Botton from './components/Botton';
 
 const fetchBlogs = async () => {
   try {
@@ -23,6 +25,7 @@ const fetch2Blogs = async () => {
   }
 };
 
+
 export default async function Home() {
   const blogs = await fetchBlogs();
   const haedBlogs = await fetch2Blogs();
@@ -31,10 +34,11 @@ export default async function Home() {
   return (
     <div className=' bg-gray-300'>
       <CarouselCustomNavigation blognews={haedBlogs} />
-      <div>
-        <h4 className='pt-4 pl-4 text-3xl'>ข่าวสาร</h4>
+      <div className='flex justify-between p-4'>
+        <h1 className='text-4xl font-mono'>ข่าวสารและกิจกรรม</h1>
+        <Botton/>
       </div>
-      <div className='pt-4 pb-10 mx-8 grid justfy-center grid-cols-3 gap-8' >
+      <div className='pb-10 mx-8 grid justfy-center grid-cols-3 gap-8' >
         {sortedData.slice(0, 3).map((blog, index) => (
           <CardNews key={index} blog={blog}>
           </CardNews>

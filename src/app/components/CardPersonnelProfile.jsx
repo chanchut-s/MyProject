@@ -47,14 +47,33 @@ function CardPersonnelProfile({ blog }) {
       desc: (
         <div>
           <h2 className="text-xl font-semibold">ความถนัด</h2>
+          <ul className='pl-4'>
+            {(blog.attributes.blogEducation?.Aptitude || []).map((item, index) => (
+              <li key={index}>{item.children[0]?.text}</li>
+            ))}
+          </ul>
+        </div>
+      ),
+    },
+    {
+      label: "นิสิต",
+      value: "Student",
+      desc: (
+        <div>
+          <h2 className="text-xl font-semibold">รายชื่อนิสิตที่ดูแล</h2>
+          <ul className='pl-4 pt-1'>
+            {(blog.attributes.blogEducation?.Student || []).map((item, index) => (
+              <li key={index}>{item.children[0]?.text}</li>
+            ))}
+          </ul>
         </div>
       ),
     },
   ];
   return (
     <div className='bg-white p-4 h-[22rem] rounded-lg'>
-      <Tabs value="info" >
-        <TabsHeader className='w-[18rem]'>
+      <Tabs value="info">
+        <TabsHeader className='w-[25rem]'>
           {tabData.map(({ label, value }) => (
             <Tab key={value} value={value}>
               {label}
