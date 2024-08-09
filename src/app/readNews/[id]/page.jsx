@@ -5,7 +5,7 @@ import CardNews from '@/app/components/CardNews';
 
 const fetchBlog = async (id) => {
   try {
-    const response = await axios.get(`http://localhost:1337/api/blogs/${id}?populate=thumbnail`);
+    const response = await axios.get(`http://localhost:1337/api/blogs/${id}?populate=*`);
     return response.data.data;
   } catch (error) {
     console.log("error", error);

@@ -29,12 +29,13 @@ function CardNews({ blog }) {
           color="transparent"
           className="m-0 rounded-none h-[15rem]"
         >
-          <img
+          <Link href={`readNews/${blog.id}`}><img
             src={"http://localhost:1337" + blog.attributes.thumbnail.data?.[0].attributes.formats.medium.url}
           />
+          </Link>
         </CardHeader>
         <CardBody>
-          <Typography variant="h4" color="blue-gray">
+          <Typography variant="h4" className='text-blue-900'>
             {blog.attributes.title}
           </Typography>
           <Typography variant="lead" color="gray" className="mt-3 font-normal h-[6rem] line-clamp-3 indent-4">
@@ -43,7 +44,7 @@ function CardNews({ blog }) {
         </CardBody>
         <CardFooter className="flex items-center justify-between">
           <Link href={`readNews/${blog.id}`} className="inline-block">
-            <Button size="sm" variant="text" className="flex items-center gap-2">
+            <Button size="sm" variant="text" className="flex items-center gap-2 text-blue-900">
               อ่านเพิ่มเติม
               <svg
                 xmlns="http://www.w3.org/2000/svg"
