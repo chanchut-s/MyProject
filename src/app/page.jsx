@@ -35,6 +35,7 @@ export default async function Home() {
     <div className=' bg-gray-300'>
       <CarouselCustomNavigation blognews={haedBlogs} />
       <div className="flex justify-around items-center min-h-screen bg-gray-100 ">
+      <h1 className='text-4xl text-blue-900'>ผลงานและงานวิจัย</h1>
         <Reward
           src="/reward/imageReward.png"
           alt="Example Image"

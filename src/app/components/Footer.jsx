@@ -3,20 +3,23 @@ import Link from 'next/link'
 
 function Footer() {
     return (
-        <section className="bg-white shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)]">
+        <section className="bg-white shadow-[0_10px_60px_-15px_rgba(0,0,0,0.3)]">
             <div className="max-w-screen-xl px-4 py-6 mx-auto space-y-4 overflow-hidden sm:px-6 lg:px-8">
                 <nav className="flex flex-wrap justify-center -mx-5 -my-2">
                     <div className="px-5 py-2">
-                        <Link href="/" className="text-base leading-6 text-blue-900 hover:text-gray-500">Home</Link>
+                        <Link href="/" className="text-base leading-6 text-blue-900 hover:text-gray-500">หน้าแรก</Link>
                     </div>
                     <div className="px-5 py-2">
-                        <Link href="/about" className="text-base leading-6 text-blue-900 hover:text-gray-500">About</Link>
+                        <Link href="/about" className="text-base leading-6 text-blue-900 hover:text-gray-500">เกี่ยวกับ</Link>
                     </div>
                     <div className="px-5 py-2">
-                        <Link href="/news" className="text-base leading-6 text-blue-900 hover:text-gray-500">News</Link>
+                        <Link href="/contact" className="text-base leading-6 text-blue-900 hover:text-gray-500">บุคลากร</Link>
                     </div>
                     <div className="px-5 py-2">
-                        <Link href="/contact" className="text-base leading-6 text-blue-900 hover:text-gray-500">Contact</Link>
+                        <Link href="/news" className="text-base leading-6 text-blue-900 hover:text-gray-500">ข่าว</Link>
+                    </div>
+                    <div className="px-5 py-2">
+                        <Link href="/contact" className="text-base leading-6 text-blue-900 hover:text-gray-500">ติดต่อ</Link>
                     </div>
                 </nav>
                 <div className="flex justify-center mt-8 space-x-6">
