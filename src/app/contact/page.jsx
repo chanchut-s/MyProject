@@ -36,7 +36,7 @@ function contact() {
           </div>
         </div>
         <div className='h-[35ram] Container w-2/5 flex justify-center'>
-          <img src="google.png" alt="" />
+          <img className='object-cover' src="google.png" alt="" />
         </div>
       </div>
     </div>

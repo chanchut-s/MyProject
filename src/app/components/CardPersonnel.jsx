@@ -18,7 +18,7 @@ function CardPersonnel({ blogPersonnal }) {
     <Card className="w-[20rem] ">
       <Link href={`personnelProfile/${blogPersonnal.id}`}>
         <CardHeader floated={false} className="h-72">
-          <img src={"http://localhost:1337" + blogPersonnal.attributes.Image.data?.[0].attributes.formats.medium.url} />
+          <img className='object-cover' src={"http://localhost:1337" + blogPersonnal.attributes.Image.data?.[0].attributes.formats.medium.url} />
         </CardHeader>
       </Link>
       <CardBody className="text-center">

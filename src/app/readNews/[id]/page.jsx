@@ -1,7 +1,8 @@
 import React from 'react'
 import axios from 'axios'
 import Heading from '@/app/components/Heading';
-import CardNews from '@/app/components/CardNews';
+import markdownToHtml from '@/app/lib/markdownToHtml';
+import BottonDownload from '@/app/components/bottons/BottonDownload';
 
 const fetchBlog = async (id) => {
   try {
@@ -15,6 +16,8 @@ const fetchBlog = async (id) => {
 
 async function page({ params }) {
   const blog = await fetchBlog(params.id);
+  const content = await markdownToHtml(blog.attributes.content)
+  const files = blog.attributes.file.data || [];
 
   return (
     <div className='bg-gray-300'>
@@ -25,7 +28,18 @@ async function page({ params }) {
           className='h-[30rem]'
         />
       </div>
-      <p className='p-10 indent-8'>{blog.attributes.content}</p>
+      <div className='p-10 indent-8' dangerouslySetInnerHTML={{ __html: content }} />
+      {/* <p className='p-10 indent-8'>{blog.attributes.content}</p> */}
+
+      <div className='grid gap-4 pl-10 pb-5'>
+        {files.map((blog, index) => (
+        <div key={index} className='flex'>
+          <BottonDownload blog={blog} />
+        </div>
+      ))}
+      </div>
+      
+
     </div>
   )
 }

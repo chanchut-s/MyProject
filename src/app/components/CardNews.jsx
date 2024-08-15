@@ -1,7 +1,8 @@
 'use client'
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Link from 'next/link';
+import markdownToHtml from '../lib/markdownToHtml';
 import {
   Card,
   CardHeader,
@@ -13,13 +14,25 @@ import {
   Tooltip,
 } from "@material-tailwind/react";
 
+
+
 function CardNews({ blog }) {
+  const [contentHtml, setContentHtml] = useState('');
   const updatedAt = new Date(blog.attributes.updatedAt);
   const formattedDate = updatedAt.toLocaleDateString('th-TH', {
     day: '2-digit',
     month: '2-digit',
     year: 'numeric',
   });
+
+  useEffect(() => {
+    const content = async () => {
+      const html = await markdownToHtml(blog.attributes.content);
+      setContentHtml(html);
+    }
+    content();
+  }, [blog.attributes.content]);
+
   return (
     <div>
       <Card className="w-[24rem] overflow-hidden">
@@ -29,8 +42,9 @@ function CardNews({ blog }) {
           color="transparent"
           className="m-0 rounded-none h-[15rem]"
         >
-          <Link href={`readNews/${blog.id}`}><img
-            src={"http://localhost:1337" + blog.attributes.thumbnail.data?.[0].attributes.formats.medium.url}
+          <Link href={`readNews/${blog.id}`}><img className='object-cover'
+            src={"http://localhost:1337" + blog.attributes.thumbnail.data?.[0].attributes.url}
+            alt={blog.attributes.title}
           />
           </Link>
         </CardHeader>
@@ -38,9 +52,9 @@ function CardNews({ blog }) {
           <Typography variant="h4" className='text-blue-900'>
             {blog.attributes.title}
           </Typography>
-          <Typography variant="lead" color="gray" className="mt-3 font-normal h-[6rem] line-clamp-3 indent-4">
-            {blog.attributes.content}
-          </Typography>
+          <div className="mt-3 font-normal h-[5rem] line-clamp-3 indent-4">
+            <div className="text-lg" dangerouslySetInnerHTML={{ __html: contentHtml }} />
+          </div>
         </CardBody>
         <CardFooter className="flex items-center justify-between">
           <Link href={`readNews/${blog.id}`} className="inline-block">

@@ -12,7 +12,7 @@ function Navber() {
           <ii className='text-blue-900 hover:text-gray-500'><Link href="/personnel">บุคลากร</Link></ii>
           <li className='text-blue-900 hover:text-gray-500'><Link href="/news">ข่าว</Link></li>
           <li className='text-blue-900 hover:text-gray-500'><Link href="/contact">ติดต่อ</Link></li>
-          <li><button className='rounded-full bg-blue-900 hover:bg-white text-white hover:text-gray-500 w-[6rem]'><Link href={"http://localhost:1337/admin/auth/login"}>เข้าสู่ระบบ</Link></button></li>
+          <li><button className='rounded-full bg-blue-900 hover:bg-white text-white hover:text-gray-500 w-[6rem]'><Link href={"http://localhost:1337/admin/auth/login"} target='_blank'>เข้าสู่ระบบ</Link></button></li>
         </ul>
       </div>
     </nav>

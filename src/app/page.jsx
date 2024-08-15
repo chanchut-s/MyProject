@@ -3,49 +3,45 @@ import Reward from './components/Reward';
 import CardNews from './components/CardNews';
 import axios from 'axios'
 import { CarouselCustomNavigation } from './components/Carousel';
-import Botton from './components/Botton';
-
+import Botton from './components/bottons/Botton';
 const fetchBlogs = async () => {
   try {
-    const response = await axios.get('http://localhost:1337/api/blogs/?populate=*');
-    return response.data.data;
-  } catch (error) {
-    console.log("error", error);
-    return [];
-  }
-};
+    const [newResponse, pinnewsResponse, rewardResponse] = await Promise.all([
+      axios.get('http://localhost:1337/api/blogs/?populate=*'),
+      axios.get('http://localhost:1337/api/relatnew?populate=blog_news.thumbnail'),
+      axios.get('http://localhost:1337/api/reward/?populate=rewards.image')
+    ]);
 
-const fetch2Blogs = async () => {
-  try {
-    const response = await axios.get('http://localhost:1337/api/relatnew?populate=blog_news.thumbnail');
-    return response.data.data.attributes.blog_news.data;
+    const news = newResponse?.data?.data || [];
+    const pinNews = pinnewsResponse?.data?.data?.attributes?.blog_news?.data || [];
+    const rewards = rewardResponse?.data?.data?.attributes?.rewards?.data || [];
+
+
+    return {
+      news, pinNews, rewards
+    };
   } catch (error) {
-    console.log("error", error);
-    return [];
+    console.log("Error fetching personnel data:", error);
+    return {
+      news: [],
+      pinNews: [],
+      rewards: []
+    };
   }
 };
 
 
 export default async function Home() {
-  const blogs = await fetchBlogs();
-  const haedBlogs = await fetch2Blogs();
-  //รับวันที่ใหม่สุดก่อน
-  const sortedData = blogs.sort((a, b) => new Date(b.attributes.updatedAt) - new Date(a.attributes.updatedAt));
+  const { news, pinNews, rewards } = await fetchBlogs();
+  const sortedData = news.sort((a, b) => new Date(b.attributes.updatedAt) - new Date(a.attributes.updatedAt));
   return (
     <div className=' bg-gray-300'>
-      <CarouselCustomNavigation blognews={haedBlogs} />
+      <CarouselCustomNavigation blognews={pinNews} />
       <div className="flex justify-around items-center min-h-screen bg-gray-100 ">
-      <h1 className='text-4xl text-blue-900'>ผลงานและงานวิจัย</h1>
-        <Reward
-          src="/reward/imageReward.png"
-          alt="Example Image"
-          href="https://www.facebook.com/?locale=th_TH"
-        />
-        <Reward
-          src="/reward/imageReward.png"
-          alt="Example Image"
-          href="https://www.facebook.com/?locale=th_TH"
-        />
+        <h1 className='text-4xl text-blue-900 text-center'>ผลงานและงานวิจัย</h1>
+        <div className="w-[47rem]">
+          <Reward blogs={rewards} />
+        </div>
       </div>
       <div className='flex justify-between p-4'>
         <h1 className='text-4xl text-blue-900'>ข่าวสารและกิจกรรม</h1>
