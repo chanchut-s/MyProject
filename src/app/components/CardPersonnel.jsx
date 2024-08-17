@@ -15,20 +15,20 @@ import {
 // "http://localhost:1337"+blogPersonnal.attributes.Image.data?.[0].attributes.formats.medium.url
 function CardPersonnel({ blogPersonnal }) {
   return (
-    <Card className="w-[20rem] ">
+    <Card className="w-[20rem] font-prompt">
       <Link href={`personnelProfile/${blogPersonnal.id}`}>
         <CardHeader floated={false} className="h-72">
           <img className='object-cover' src={"http://localhost:1337" + blogPersonnal.attributes.Image.data?.[0].attributes.formats.medium.url} />
         </CardHeader>
       </Link>
       <CardBody className="text-center">
-        <Typography variant="h4" className="mb-2 text-blue-900">
+        <Typography variant="h4" className="mb-2 font-prompt text-blue-900">
           {blogPersonnal.attributes.NameTH}
         </Typography>
-        <Typography color="blue-gray" className="font-medium" textGradient>
+        <Typography color="blue-gray" className="font-medium font-prompt" textGradient>
           {blogPersonnal.attributes.Email}
         </Typography>
-        <Typography color="blue-gray" className="font-medium" textGradient>
+        <Typography color="blue-gray" className="font-medium font-prompt" textGradient>
           {blogPersonnal.attributes.telephone}
         </Typography>
       </CardBody>

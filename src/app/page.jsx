@@ -4,6 +4,8 @@ import CardNews from './components/CardNews';
 import axios from 'axios'
 import { CarouselCustomNavigation } from './components/Carousel';
 import Botton from './components/bottons/Botton';
+import './CardNewsLayout.css';
+
 const fetchBlogs = async () => {
   try {
     const [newResponse, pinnewsResponse, rewardResponse] = await Promise.all([
@@ -37,9 +39,9 @@ export default async function Home() {
   return (
     <div className=' bg-gray-300'>
       <CarouselCustomNavigation blognews={pinNews} />
-      <div className="flex justify-around items-center min-h-screen bg-gray-100 ">
-        <h1 className='text-4xl text-blue-900 text-center'>ผลงานและงานวิจัย</h1>
-        <div className="w-[47rem]">
+      <div className="w-full flex flex-col custom-md:flex-row justify-around items-center  bg-gray-100 p-4">
+        <h1 className='text-4xl text-blue-900 text-center pb-4'>ผลงานและงานวิจัย</h1>
+        <div className="w-full md:w-[50rem]">
           <Reward blogs={rewards} />
         </div>
       </div>
@@ -47,7 +49,7 @@ export default async function Home() {
         <h1 className='text-4xl text-blue-900'>ข่าวสารและกิจกรรม</h1>
         <Botton />
       </div>
-      <div className='pb-10 mx-8 grid justfy-center grid-cols-3 gap-8' >
+      <div className='card-news-layout' >
         {sortedData.slice(0, 3).map((blog, index) => (
           <CardNews key={index} blog={blog}>
           </CardNews>

@@ -16,11 +16,26 @@ function CardPersonnelProfile({ blog }) {
       value: "info",
       desc: blog.attributes.NameTH || blog.attributes.NameEN || blog.attributes.Email || blog.attributes.telephone || blog.attributes.workroom ? (
         <div>
-          <p className="pl-14">ชื่อ: {blog.attributes.NameTH}</p>
-          <p className="pl-[83px]">{blog.attributes.NameEN}</p>
-          <p className='pl-10 pt-2'>อีเมล์: {blog.attributes.Email}</p>
-          <p className='pl-4'>เบอร์โทร: {blog.attributes.telephone}</p>
-          <p>ห้องทำงาน: {blog.attributes.workroom}</p>
+          <div className='flex space-x-2'>
+            <div className="font-semibold">ชื่อภาษาไทย:</div>
+            <div>{blog.attributes.NameTH}</div>
+          </div>
+          <div className='flex space-x-2'>
+            <div className="font-semibold">ชื่อภาษาอังกฤษ:</div>
+            <div>{blog.attributes.NameEN}</div>
+          </div>
+          <div className='flex space-x-2'>
+            <div className="font-semibold">อีเมล์:</div>
+            <div>{blog.attributes.Email}</div>
+          </div>
+          <div className='flex space-x-2'>
+            <div className="font-semibold">เบอร์โทร:</div>
+            <div>{blog.attributes.telephone}</div>
+          </div>
+          <div className='flex space-x-2'>
+            <div className="font-semibold">ห้องทำงาน:</div>
+            <div>{blog.attributes.workroom}</div>
+          </div>
         </div>
       ) : null,
     },
@@ -93,7 +108,7 @@ function CardPersonnelProfile({ blog }) {
             <Tab
               key={value}
               value={value}
-              className="flex-grow px-4 py-1 text-center whitespace-nowrap"
+              className="flex-grow px-4 py-1 text-center whitespace-nowrap font-prompt"
             >
               {label}
             </Tab>
@@ -101,7 +116,7 @@ function CardPersonnelProfile({ blog }) {
         </TabsHeader>
         <TabsBody>
           {tabData.map(({ value, desc }) => (
-            <TabPanel key={value} value={value} className="h-[16rem] overflow-y-auto">
+            <TabPanel key={value} value={value} className="h-[16rem] overflow-y-auto font-prompt">
               {desc}
             </TabPanel>
           ))}

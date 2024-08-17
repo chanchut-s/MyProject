@@ -2,3 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+html, body {
+  font-family: 'Prompt', sans-serif;
+}
+
+@media (min-width: 1027px) {
+    .custom-md\:flex-row {
+      flex-direction: row;
+    }
+  
+    .custom-md\:w-\[50rem\] {
+      width: 50rem;
+    }
+  }
+
+  
