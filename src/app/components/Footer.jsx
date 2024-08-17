@@ -1,25 +1,30 @@
+'use client'
+
 import React from 'react'
 import Link from 'next/link'
+import { useLanguage } from '../LanguageContext';
 
 function Footer() {
+    const { language } = useLanguage();
+
     return (
         <section className="bg-white shadow-[0_10px_60px_-15px_rgba(0,0,0,0.3)]">
             <div className="max-w-screen-xl px-4 py-6 mx-auto space-y-4 overflow-hidden sm:px-6 lg:px-8">
                 <nav className="flex flex-wrap justify-center -mx-5 -my-2">
                     <div className="px-5 py-2">
-                        <Link href="/" className="text-base leading-6 text-blue-900 hover:text-gray-500">หน้าแรก</Link>
+                        <Link href="/" className="text-base leading-6 text-blue-900 hover:text-gray-500">{language === "th" ? "หน้าแรก" : "Home"}</Link>
                     </div>
                     <div className="px-5 py-2">
-                        <Link href="/about" className="text-base leading-6 text-blue-900 hover:text-gray-500">เกี่ยวกับ</Link>
+                        <Link href="/about" className="text-base leading-6 text-blue-900 hover:text-gray-500">{language === "th" ? "เกี่ยวกับ" : "About"}</Link>
                     </div>
                     <div className="px-5 py-2">
-                        <Link href="/contact" className="text-base leading-6 text-blue-900 hover:text-gray-500">บุคลากร</Link>
+                        <Link href="/contact" className="text-base leading-6 text-blue-900 hover:text-gray-500">{language === "th" ? "บุคลากร" : "Personnel"}</Link>
                     </div>
                     <div className="px-5 py-2">
-                        <Link href="/news" className="text-base leading-6 text-blue-900 hover:text-gray-500">ข่าว</Link>
+                        <Link href="/news" className="text-base leading-6 text-blue-900 hover:text-gray-500">{language === "th" ? "ข่าว" : "News"}</Link>
                     </div>
                     <div className="px-5 py-2">
-                        <Link href="/contact" className="text-base leading-6 text-blue-900 hover:text-gray-500">ติดต่อ</Link>
+                        <Link href="/contact" className="text-base leading-6 text-blue-900 hover:text-gray-500">{language === "th" ? "ติดต่อ" : "Contact"}</Link>
                     </div>
                 </nav>
                 <div className="flex justify-center mt-8 space-x-6">

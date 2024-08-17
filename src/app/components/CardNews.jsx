@@ -49,7 +49,7 @@ function CardNews({ blog }) {
           </Link>
         </CardHeader>
         <CardBody>
-          <Typography variant="h4" className='text-blue-900'>
+          <Typography variant="h4" className='text-blue-900 font-prompt'>
             {blog.attributes.title}
           </Typography>
           <div className="mt-3 font-normal h-[5rem] line-clamp-3 indent-4">
@@ -58,7 +58,7 @@ function CardNews({ blog }) {
         </CardBody>
         <CardFooter className="flex items-center justify-between">
           <Link href={`readNews/${blog.id}`} className="inline-block">
-            <Button size="sm" variant="text" className="flex items-center gap-2 text-blue-900">
+            <Button size="sm" variant="text" className="flex items-center gap-2 text-blue-900 font-prompt">
               อ่านเพิ่มเติม
               <svg
                 xmlns="http://www.w3.org/2000/svg"

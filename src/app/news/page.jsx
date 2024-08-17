@@ -5,6 +5,8 @@ import CardNews from '../components/CardNews';
 import Heading from '../components/Heading';
 import { DefaultPagination } from '../components/Pagination';
 import axios from 'axios';
+import './CustomGridLayout.css';
+
 
 const fetchBlogs = async () => {
   try {
@@ -19,7 +21,7 @@ const fetchBlogs = async () => {
 const News = () => {
   const [blogs, setBlogs] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const blogsPerPage = 9;
+  const blogsPerPage = 6;
   const containerRef = useRef(null);
 
   useEffect(() => {
@@ -50,7 +52,7 @@ const News = () => {
       <Heading text={"ข่าวสาร"} />
       <div className='p-5'>
         <h4 className='text-4xl text-blue-900'>ข่าวสารและกิจกรรมทั้งหมด</h4>
-        <div ref={containerRef} className='pt-5 px-8 grid justify-center grid-cols-3 gap-8'>
+        <div ref={containerRef} className='custom-grid-layout'>
           {currentBlogs.map((blog, index) => (
             <CardNews key={index} blog={blog} />
           ))}

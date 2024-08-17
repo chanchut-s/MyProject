@@ -39,7 +39,7 @@ async function personnel() {
           <div className='flex justify-center'>
             <h1 className='text-4xl font-bold text-blue-900'>อาจารย์</h1>
           </div>
-          <div className='grid grid-cols-3 gap-16'>
+          <div className='grid grid-cols-1 gap-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center'>
             {professors.map((professor, index) => (
               <CardPersonnel key={index} blogPersonnal={professor} />
             ))}
@@ -52,7 +52,7 @@ async function personnel() {
           <div className='flex justify-center'>
             <h1 className='text-4xl font-bold text-blue-900'>เจ้าหน้าที่</h1>
           </div>
-          <div className='grid grid-cols-3 gap-16'>
+          <div className='grid grid-cols-1 gap-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center font-prompt'>
             {staffs.map((staff, index) => (
               <CardPersonnel key={index} blogPersonnal={staff} />
             ))}
@@ -65,7 +65,7 @@ async function personnel() {
           <div className='flex justify-center'>
             <h1 className='text-4xl font-bold text-blue-900'>ภารโรง</h1>
           </div>
-          <div className='grid grid-cols-3 gap-16'>
+          <div className='grid grid-cols-1 gap-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center'>
             {janitors.map((janitor, index) => (
               <CardPersonnel key={index} blogPersonnal={janitor} />
             ))}
